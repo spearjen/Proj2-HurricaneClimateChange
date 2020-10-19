@@ -1,2 +1,16 @@
+*.psd filter=lfs diff=lfs merge=lfs -text
+df2007.psd filter=lfs diff=lfs merge=lfs -text
+df2008.psd filter=lfs diff=lfs merge=lfs -text
+df2009.psd filter=lfs diff=lfs merge=lfs -text
+df2010.psd filter=lfs diff=lfs merge=lfs -text
+df2011.psd filter=lfs diff=lfs merge=lfs -text
+df2012.psd filter=lfs diff=lfs merge=lfs -text
+df2013.psd filter=lfs diff=lfs merge=lfs -text
+df2014.psd filter=lfs diff=lfs merge=lfs -text
+df2015.psd filter=lfs diff=lfs merge=lfs -text
+df2016.psd filter=lfs diff=lfs merge=lfs -text
+df2017.psd filter=lfs diff=lfs merge=lfs -text
+df1851_2000.psd filter=lfs diff=lfs merge=lfs -text
+df2001_2004.psd filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
 *.csv filter=lfs diff=lfs merge=lfs -text
