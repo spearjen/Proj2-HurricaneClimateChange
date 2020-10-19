@@ -80,7 +80,7 @@ function createMap(earthquakes) {
 
   // Create our map, giving it the satelitte and earthquakes layers to display on load
   var myMap = L.map("mapid", {
-    center: [30.3043,-80.0659],
+    center: [28.5,-70],
     zoom: 5,
     layers: [satelitte, earthquakes]
   });
