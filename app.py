@@ -1,54 +1,35 @@
-import pandas
-import pandas_gbq
+# PULL IN DEPENDENCIES AND MAKE CONNECTION
+import sqlite3
 
-# TODO: Set project_id to your Google Cloud Platform project ID.
-project_id = "plucky-courier-292500"
+conn = sqlite3.connect('?????.db')
 
-# sql = """
-# SELECT latitude, longitude, year, month, day, air_temperature, sea_surface_temp
-# FROM `bigquery-public-data.noaa_icoads.icoads_core_1662_2000`
-# WHERE year >= 1851
-# AND latitude >=15.623
-# AND latitude <=47.279
-# AND longitude >=-98.965
-# AND longitude <=-59.063
-# """
-sql = """
-SELECT latitude, longitude, year, month, day, air_temperature, sea_surface_temp
-FROM `bigquery-public-data.noaa_icoads.icoads_core_2001_2004`
-WHERE latitude >=15.623
-AND latitude <=47.279
-AND longitude >=-98.965
-AND longitude <=-59.063
-"""
-# TODO: Set table_id to the full destination table ID (including the
-#       dataset ID).
-table_id = 'hurricane_df.hurricane_df_2001-2004'
+from datetime import datetime
 
-df = pandas.DataFrame(
-#     {
-#         "latitude": "latitude",
-#         "longitude": "longitude",
-#         "year": "year",
-#         "month": "month",
-#         "day": "day",
-#         "air_temperature": "air_temperature",
-#         "longitude": "sea_surface_temp",
-#     }
-# )
+from flask import Flask
 
-# years = 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017
+from flask_sqlalchemy import SQLAlchemy
 
-# for year in years:
+# CREATE TABLE IF NEEDED
 
-#     sql = """
-#     SELECT latitude, longitude, year, month, day, air_temperature, sea_surface_temp
-#     FROM `bigquery-public-data.noaa_icoads.icoads_core_{year}`
-#     WHERE latitude >=15.623
-#     AND latitude <=47.279
-#     AND longitude >=-98.965
-#     AND longitude <=-59.063
-#     """
+conn.execute("""CREATE TABLE IF NOT EXISTS air_sea_temps (
+                latitude FLOAT,
+                longitude FLOAT,
+                year INTEGER,
+                month INTEGER,
+                day INTEGER,
+                air_temperature FLOAT,    
+                sea_surface_temp FLOAT     
+                )""")
 
-# df = pandas_gbq.read_gbq(sql, project_id=project_id)
-pandas_gbq.to_gbq(df, table_id, project_id=project_id)
+# # ADD VALUES IF NEEDED
+# values = ('Deep Learning', 
+#           'Ian Goodfellow et al.', 
+#           775, 
+#           datetime(2016, 11, 18).timestamp())
+
+# #EXECUTE COMMAND
+# conn.execute("""INSERT INTO books VALUES (?, ?, ?, ?)""", values)
+
+#QUERY
+r = conn.execute("""SELECT * FROM ?????""")
+r.fetchall()
